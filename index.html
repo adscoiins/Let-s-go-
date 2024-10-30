@@ -119,12 +119,12 @@
                     if (data.success) {
                         window.location.href = "https://ritradingspot.github.io/Home/";
                     } else {
-                        alert("Failed to save user data.");
+                        alert("فشل في حفظ بيانات المستخدم.");
                     }
                 })
-                .catch(error => console.error("Error:", error));
+                .catch(error => console.error("خطأ:", error));
             } else {
-                alert("Username could not be retrieved from Telegram.");
+                alert("لم يتمكن من جلب اسم المستخدم من Telegram.");
             }
         }
     </script>
