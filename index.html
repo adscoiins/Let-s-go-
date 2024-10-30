@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>صفحة نصف شاشة إبداعية</title>
+    <!-- رابط مكتبة Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- إضافة مكتبة Telegram Web Apps -->
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    
     <style>
+        /* إعدادات الصفحة الرئيسية */
         body, html {
             margin: 0;
             padding: 0;
@@ -17,16 +15,18 @@
             align-items: flex-end;
             justify-content: center;
             height: 100vh;
-            background-color: #000000;
+            background-color: #000000; /* لون خلفية أسود */
             font-family: Arial, sans-serif;
             overflow: hidden;
         }
+
+        /* إعدادات القسم الذي يظهر من أسفل */
         .half-screen {
             position: absolute;
             bottom: -70%;
             width: 95%;
-            height: 70%;
-            background: linear-gradient(145deg, #007bff, #ff7f50);
+            height: 70%; /* يغطي 70% من الشاشة */
+            background: linear-gradient(145deg, #007bff, #ff7f50); /* خليط بين الأزرق والبرتقالي */
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
             display: flex;
@@ -39,13 +39,17 @@
             text-align: center;
             padding: 20px;
         }
+
+        /* إعدادات الشعار */
         .logo {
             width: 100px;
             height: auto;
             margin-bottom: 20px;
-            border-radius: 50%;
+            border-radius: 50%; /* يجعل الشعار دائري */
             box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
         }
+
+        /* زر البدء */
         .start-btn {
             padding: 12px 30px;
             font-size: 20px;
@@ -59,18 +63,26 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             margin-top: 20px;
         }
+
+        /* تأثير الزر عند التمرير */
         .start-btn:hover {
             background-color: #ff7f50;
             transform: translateY(-3px);
         }
+
+        /* نص تحت الشعار */
         .description {
             font-size: 18px;
             color: #e0e0e0;
             margin-top: 10px;
         }
+
+        /* حركة الظهور */
         .show {
             bottom: 0;
         }
+
+        /* إعدادات الأيقونات */
         .icons {
             display: flex;
             justify-content: center;
@@ -78,12 +90,14 @@
             margin-top: 15px;
             color: #ffffff;
         }
+
         .icons i {
             font-size: 30px;
             transition: color 0.3s;
         }
+
         .icons i:hover {
-            color: #ff7f50;
+            color: #ff7f50; /* تأثير اللون البرتقالي عند التمرير */
         }
     </style>
 </head>
@@ -93,6 +107,7 @@
         <p class="description">Welcome to our platform! Click "Let's Go" to get started</p>
         <button class="start-btn" onclick="startAction()">Let's Go</button>
         
+        <!-- أيقونات Telegram و TONcoin -->
         <div class="icons">
             <i class="fab fa-telegram"></i>
             <i class="fas fa-coins"></i>
@@ -100,34 +115,14 @@
     </div>
 
     <script>
+        // تفعيل الظهور عند تحميل الصفحة
         window.onload = () => {
             document.getElementById('halfScreen').classList.add('show');
         };
 
+        // توجيه المستخدم إلى صفحة Home الخاصة بمشروعك على GitHub
         function startAction() {
-            const telegram = window.Telegram.WebApp;
-            const username = telegram.initDataUnsafe.user?.username;
-
-            if (username) {
-                fetch("https://your-backend-url.com/saveUser", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ username: username }),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        window.location.href = "https://ritradingspot.github.io/Home1/";
-                    } else {
-                        alert("Failed to save user data.");
-                    }
-                })
-                .catch(error => console.error("Error:", error));
-            } else {
-                alert("Username could not be retrieved from Telegram.");
-            }
+            window.location.href = "https://ritradingspot.github.io/Home/";
         }
     </script>
 </body>
